@@ -30,7 +30,7 @@ stages:
     - bash: echo $(job_message)
     
 - stage: CodeAnalysis
-  displayName: Unit Test : IR-Digital
+  displayName: "Unit Test : IR-Digital"
   jobs:
   - job: StageBegin
     pool:
