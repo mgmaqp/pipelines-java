@@ -5,33 +5,48 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  global_variable: value    # this is available to all jobs
   
 stages:
-- stage: buildMGM
-  displayName: buildMGM
+- stage: Build
+  displayName: Build : IR-Digital
   jobs:
-  - job: job1
+  - job: StageBegin
     pool:
       vmImage: 'ubuntu-16.04'
     variables:
-      job_variable1: value1    # this is only available in job1
+      job_message: '**** STAGE BUILD - INTERCORP ****'
     steps:
-    - bash: echo $(global_variable)
-    - bash: echo $(job_variable1)
-    - bash: echo $JOB_VARIABLE1 # variables are available in the script environment too
+    - bash: echo $(job_message)
 
-- stage: UnitTestMGM
-  displayName: UnitTestMGM
+- stage: UnitTest
+  displayName: Unit Test : IR-Digital
   jobs:
-  - job: job1
+  - job: StageBegin
     pool:
       vmImage: 'ubuntu-16.04'
     variables:
-      job_variable1: value1    # this is only available in job1
+      job_message: '**** STAGE UNIT TEST - INTERCORP ****'
     steps:
-    - bash: echo $(global_variable)
-    - bash: echo $(job_variable1)
-    - bash: echo $JOB_VARIABLE1 # variables are available in the script environment too
+    - bash: echo $(job_message)
+    
+- stage: CodeAnalysis
+  displayName: Unit Test : IR-Digital
+  jobs:
+  - job: StageBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** STAGE CODE ANALYSIS - INTERCORP ****'
+    steps:
+    - bash: echo $(job_message)
  
- 
+- stage: Package
+  displayName: Package : IR-Digital
+  jobs:
+  - job: StageBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** STAGE PACKAGE - INTERCORP ****'
+    steps:
+    - bash: echo $(job_message)
