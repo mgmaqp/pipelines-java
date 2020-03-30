@@ -16,6 +16,105 @@ stages:
     pool:
       vmImage: 'ubuntu-16.04'
     variables:
-      job_message: '**** [Stage: Build | Job: Begin - INTERCORP]   ****'
+      job_message: '**** [Stage: Build :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+
+- stage: UnitTest
+  displayName: 'Unit Test : Intercorp'
+  jobs:
+  - job: StageUnitTestJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Unit Test :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+    
+- stage: CodeAnalysis
+  displayName: 'Code Analysis : Intercorp'
+  jobs:
+  - job: StageCodeAnalysisJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Code Analysis :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+ 
+- stage: Package
+  displayName: 'Package : Intercorp'
+  jobs:
+  - job: StagePackageJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Package :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+
+- stage: AutomatedTest
+  displayName: 'Automated Test : Intercorp'
+  jobs:
+  - job: StageAutomatedTestJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Automated Test :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+    
+- stage: Integration
+  displayName: 'Integration : Intercorp'
+  jobs:
+  - job: StageIntegrationJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Integration :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+ 
+- stage: Release
+  displayName: 'Release : Intercorp'
+  jobs:
+  - job: StageReleaseJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Release :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message) 
+ 
+- stage: DeployInfrastructure
+  displayName: 'Deploy Infrastructure : Intercorp'
+  jobs:
+  - job: StageDeployInfrastructureJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Deploy Infrastructure :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message) 
+ 
+- stage: DeployApplication
+  displayName: 'Deploy Application : Intercorp'
+  jobs:
+  - job: StageDeployApplicationJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Deploy Application :: Job: Begin - INTERCORP] ****'
+    steps:
+    - bash: echo $(job_message)
+    
+- stage: DeployConfiguration
+  displayName: 'Deploy Configuration : Intercorp'
+  jobs:
+  - job: StageDeployConfigurationJobBegin
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_message: '**** [Stage: Deploy Configuration :: Job: Begin - INTERCORP] ****'
     steps:
     - bash: echo $(job_message)
